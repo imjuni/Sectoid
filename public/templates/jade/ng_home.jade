@@ -1,0 +1,49 @@
+.row.heading-section
+   .col-lg-12
+      h1.heading-section-heading Timekeeper
+.row.stop-watch-section
+   .col-lg-12
+      h1.stop-watch-section-heading(ng-bind="homeCtrl.cpation.duration")
+      h1.sum-section-heading(ng-bind="homeCtrl.state.sum")
+.row.reflection-controls
+   .col-lg-12
+      button.btn.btn-primary(ng-disabled="homeCtrl.isEnableStopAll()", ng-click="homeCtrl.onClickStopAll()") Stop reflection
+      button.btn.btn-primary(ng-disabled="homeCtrl.state.reflection", ng-click="homeCtrl.onClickMiniReflection()") Load mini ref.
+      button.btn.btn-primary(ng-disabled="homeCtrl.state.reflection", ng-click="homeCtrl.onClickReflection()") Load ref.
+      a.btn.btn-primary(ng-disabled="homeCtrl.state.reflection",
+      ng-attr-target="{{homeCtrl.download.target}}",
+      ng-attr-download="{{homeCtrl.download.download}}",
+      ng-href="{{homeCtrl.download.data}}") Show summary
+      //- a#download-anchor(style="display: block;", ng-href="{{homeCtrl.downloadData}}") Test
+.row
+   .col-lg-12.scroller
+      .row.reflection-step(ng-repeat="step in homeCtrl.steps track by $index")
+         .col-lg-12
+            .progress-section
+               .progress-bar(ng-style="{ width: step.progressStyle }", ng-class="[step.classes.overflow]")
+            .touch-section(ng-class="{ touched: step.touch }")
+            .content-container
+               .heading-container
+                  h1.step-heading(ng-bind="step.name")
+               .reserved-container
+                  form(ng-hide="step.noreserved")
+                     .form-group
+                        label Reserved (sec)
+                        input.form-control(type="text", placeholder="Reserved", ng-model="step.reserved")
+               .button-container
+                  button.btn.btn-primary.btn-start(ng-click="homeCtrl.onClickStart($index)",
+                  ng-disabled="step.button.start",
+                  ng-show="step.button.showStart")
+                     i.fa.
+                     | Start
+                  br
+                  button.btn.btn-primary.btn-stop(ng-click="homeCtrl.onClickStop($index)",
+                  ng-disabled="step.button.stop",
+                  ng-show="step.button.showStop") Stop
+               .sum-container
+                  h1.sum-heading(ng-bind="step.sum")
+                  h1.sum-heading(ng-bind="step.difference")
+               .stamp-container
+                  ul
+                     li(ng-repeat="stamp in step.stamps track by $index")
+                        | {{stamp.start | dateFilter}} ~ {{stamp.end | dateFilter}} {{stamp.diff | durationFilter}}

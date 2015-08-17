@@ -1,0 +1,8 @@
+{
+  "newcap": false,
+  "jquery": true,
+  "strict": true,
+  "globalstrict": true,
+  "browser": true,
+  "predef": ["_", "moment", "ZeroClipboard", "console", "shortcut", "$", "angular", "io", "async"]
+}

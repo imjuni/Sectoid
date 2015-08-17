@@ -1,0 +1,223 @@
+@import "variables.less";
+@import "roboto_font.less";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 40px;
+  overflow: hidden;
+  //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+[ui-view='main'] {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.navbar-inverse {
+  background-color: @color-second;
+  border-color: darken(@color-second, 8%);
+
+  .navbar-nav {
+    .active {
+      a {
+        color: #fff;
+        background-color: darken(@color-second, 5%);
+
+        &:hover {
+          background-color: darken(@color-second, 8%);
+        }
+      }
+    }
+  }
+
+  .navbar-brand {
+    color: #EFEFEF;
+  }
+}
+
+
+.heading-section {
+  .heading-section-heading {
+    font-size: 20px;
+    font-weight: 100;
+    margin-top: 10px;
+    font-family: "Roboto";
+    color: @color-third;
+  }
+}
+
+.stop-watch-section {
+  .col-lg-12 {
+    display: flex;
+    flex-direction: row;
+
+    .stop-watch-section-heading {
+      flex: auto;
+      font-size: 80px;
+      margin-top: 0;
+      font-family: "Roboto";
+      font-weight: 100;
+      color: @color-third;
+    }
+
+    .sum-section-heading {
+      .stop-watch-section-heading();
+      font-weight: 200;
+    }
+  }
+
+}
+
+.reflection-controls {
+  margin-bottom: 20px;
+  button, a {
+    width: 120px;
+    padding: 6px 10px;
+    margin-right: 10px;
+  }
+}
+
+.scroller {
+  position: absolute;
+  overflow-y: auto;
+  width: calc(100% ~"-" 20px);
+
+  padding-top: 2px;
+  padding-bottom: 30px;
+
+  top: 235px;
+  left: 10px;
+  bottom: 0;
+}
+
+.reflection-step {
+  border: 1px solid @color-third;
+  margin-top: -1px;
+  border-radius: 2px;
+  height: 100px;
+
+  .col-lg-12 {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .touch-section {
+    flex: 0 0 15px;
+    width: 10px;
+    height: 100%;
+    background-color: @color-primary;
+
+    &.touched {
+      background-color: @color-second;
+    }
+  }
+
+  .progress-section {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    transition: width 0.3s ease;
+
+    .progress-bar {
+      transition: width 0.3s ease;
+      background-color: @color-third;
+      width: 0;
+
+      &.over-flow-time {
+        background-color: @color-counter-third;
+      }
+    }
+  }
+
+  .content-container {
+    padding: 10px;
+    flex: auto;
+    display: flex;
+
+
+    .heading-container {
+      flex: 0 0 35%;
+
+      .step-heading {
+        font-size: 24px;
+        color: @color-third;
+        margin-top: 0;
+        padding: 5px;
+        font-family: "Roboto";
+      }
+    }
+
+    .reserved-container {
+      flex: 0 0 17%;
+      padding: 5px 20px 5px 5px;
+
+      .form-group {
+        label {
+          font-size: 12px;
+          font-weight: 200;
+        }
+      }
+    }
+
+    .button-container {
+      flex: 0 0 13%;
+      .btn-start {
+        margin-bottom: 5px;
+      }
+    }
+
+    .sum-container {
+      flex: 0 0 15%;
+
+      .sum-heading {
+        font-size: 25px;
+        font-weight: 100;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .stamp-container {
+      flex: 0 0 20%;
+    }
+  }
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.ethereal-btn {
+  background-color: @color-second;
+  border: 0;
+  padding: 5px 30px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 7px darken(@color-second, 20%);
+  font-family: "Roboto";
+  font-weight: 200;
+  color: #E2E2E2;
+  margin-bottom: 5px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: lighten(@color-second, 3%);
+  }
+
+  &:active {
+    box-shadow: 1px 1px 3px darken(@color-second, 30%);
+    background-color: darken(@color-second, 1%);
+  }
+}

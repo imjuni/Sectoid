@@ -1,0 +1,57 @@
+
+<div class="row heading-section">
+  <div class="col-lg-12">
+    <h1 class="heading-section-heading">Timekeeper</h1>
+  </div>
+</div>
+<div class="row stop-watch-section">
+  <div class="col-lg-12">
+    <h1 ng-bind="homeCtrl.cpation.duration" class="stop-watch-section-heading"></h1>
+    <h1 ng-bind="homeCtrl.state.sum" class="sum-section-heading"></h1>
+  </div>
+</div>
+<div class="row reflection-controls">
+  <div class="col-lg-12">
+    <button ng-disabled="homeCtrl.isEnableStopAll()" ng-click="homeCtrl.onClickStopAll()" class="btn btn-primary">Stop reflection</button>
+    <button ng-disabled="homeCtrl.state.reflection" ng-click="homeCtrl.onClickMiniReflection()" class="btn btn-primary">Load mini ref.</button>
+    <button ng-disabled="homeCtrl.state.reflection" ng-click="homeCtrl.onClickReflection()" class="btn btn-primary">Load ref.</button><a ng-disabled="homeCtrl.state.reflection" ng-attr-target="{{homeCtrl.download.target}}" ng-attr-download="{{homeCtrl.download.download}}" ng-href="{{homeCtrl.download.data}}" class="btn btn-primary">Show summary</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 scroller">
+    <div ng-repeat="step in homeCtrl.steps track by $index" class="row reflection-step">
+      <div class="col-lg-12">
+        <div class="progress-section">
+          <div ng-style="{ width: step.progressStyle }" ng-class="[step.classes.overflow]" class="progress-bar"></div>
+        </div>
+        <div ng-class="{ touched: step.touch }" class="touch-section"></div>
+        <div class="content-container">
+          <div class="heading-container">
+            <h1 ng-bind="step.name" class="step-heading"></h1>
+          </div>
+          <div class="reserved-container">
+            <form ng-hide="step.noreserved">
+              <div class="form-group">
+                <label>Reserved (sec)</label>
+                <input type="text" placeholder="Reserved" ng-model="step.reserved" class="form-control"/>
+              </div>
+            </form>
+          </div>
+          <div class="button-container">
+            <button ng-click="homeCtrl.onClickStart($index)" ng-disabled="step.button.start" ng-show="step.button.showStart" class="btn btn-primary btn-start"><i class="fa"></i>Start</button><br/>
+            <button ng-click="homeCtrl.onClickStop($index)" ng-disabled="step.button.stop" ng-show="step.button.showStop" class="btn btn-primary btn-stop">Stop</button>
+          </div>
+          <div class="sum-container">
+            <h1 ng-bind="step.sum" class="sum-heading"></h1>
+            <h1 ng-bind="step.difference" class="sum-heading"></h1>
+          </div>
+          <div class="stamp-container">
+            <ul>
+              <li ng-repeat="stamp in step.stamps track by $index">{{stamp.start | dateFilter}} ~ {{stamp.end | dateFilter}} {{stamp.diff | durationFilter}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

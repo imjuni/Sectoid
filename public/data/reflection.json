@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Direction Review",
+    "reserved": 300,
+    "required": true
+  },
+  {
+    "name": "Goals & Tasks Reflection",
+    "reserved": 1200,
+    "required": true
+  },
+  {
+    "name": "Achievements 도출 (공유 Item)",
+    "reserved": 750,
+    "required": true
+  },
+  {
+    "name": "Roadmap Review",
+    "reserved": 1200,
+    "required": true
+  },
+  {
+    "name": "Direction Refine",
+    "reserved": 600,
+    "required": true
+  },
+  {
+    "name": "Next Cycle Goals & Tasks draw",
+    "reserved": 900,
+    "required": true
+  },
+  {
+    "name": "Break Time",
+    "reserved": 600,
+    "required": false
+  }
+]

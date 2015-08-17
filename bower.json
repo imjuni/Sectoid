@@ -1,0 +1,20 @@
+{
+  "name": "sectoid",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-ui-router": "~0.2.15",
+    "moment": "~2.10.6",
+    "lodash": "~3.10.1",
+    "underscore.string": "~3.1.1",
+    "angular-translate": "~2.7.2",
+    "angular-resource": "~1.4.4",
+    "fontawesome": "~4.4.0",
+    "bootstrap": "~3.3.5"
+  }
+}
