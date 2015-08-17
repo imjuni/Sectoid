@@ -13,7 +13,7 @@
         url: '/',
         views : {
           main: {
-            templateUrl: '/templates/html/ng_home.html',
+            templateUrl: 'templates/html/ng_home.html',
             controller: 'HomeCtrl',
             controllerAs: 'homeCtrl'
           }
